@@ -7,11 +7,11 @@ import java.net.HttpURLConnection;
  */
 public class HttpUtility {
 
-    public static String createWeatherAPIURL() {
-        return null;
+    public static String createWeatherAPIURL() throws Exception {
+        throw new Exception();
     }
 
-    public static HttpURLConnection makeUrlConnection(String url) {
-        return null;
+    public static HttpURLConnection makeUrlConnection(String url) throws Exception{
+        throw new Exception();
     }
 }
