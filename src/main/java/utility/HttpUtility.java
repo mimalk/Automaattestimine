@@ -1,4 +1,4 @@
-package http.utility;
+package utility;
 
 import java.net.HttpURLConnection;
 import java.net.URL;

@@ -1,6 +1,6 @@
 package utilitytest;
 
-import http.utility.Converter;
+import utility.Converter;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

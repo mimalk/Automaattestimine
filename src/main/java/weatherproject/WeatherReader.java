@@ -1,6 +1,6 @@
 package weatherproject;
 
-import http.utility.HttpUtility;
+import utility.HttpUtility;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;

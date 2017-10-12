@@ -1,6 +1,6 @@
 package weatherproject;
 
-import http.utility.Converter;
+import utility.Converter;
 
 /**
  * Class for current weather.

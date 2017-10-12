@@ -1,6 +1,6 @@
 package utilitytest;
 
-import http.utility.HttpUtility;
+import utility.HttpUtility;
 import org.junit.Test;
 
 import java.net.HttpURLConnection;
