@@ -4,8 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import weatherrepository.WeatherRepository;
 import validator.DataValidator;
-import weatherproject.CurrentWeather;
-import weatherproject.WeatherReader;
+import weather.CurrentWeather;
+import weather.WeatherReader;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;

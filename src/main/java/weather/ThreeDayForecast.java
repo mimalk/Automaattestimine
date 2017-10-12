@@ -1,4 +1,4 @@
-package weatherproject;
+package weather;
 
 import java.util.List;
 

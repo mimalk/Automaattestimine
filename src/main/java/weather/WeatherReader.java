@@ -1,4 +1,4 @@
-package weatherproject;
+package weather;
 
 import utility.HttpUtility;
 import org.json.JSONObject;

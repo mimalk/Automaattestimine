@@ -2,7 +2,7 @@ package weatherrepository;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import weatherproject.*;
+import weather.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

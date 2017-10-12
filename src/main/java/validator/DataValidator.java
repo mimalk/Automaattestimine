@@ -1,6 +1,6 @@
 package validator;
 
-import weatherproject.Coordinates;
+import weather.Coordinates;
 
 /**
  * Class that validates data.
