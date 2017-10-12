@@ -2,7 +2,7 @@ package repositorytest;
 
 import org.junit.Before;
 import org.junit.Test;
-import repository.WeatherRepository;
+import weatherrepository.WeatherRepository;
 import validator.DataValidator;
 import weatherproject.CurrentWeather;
 import weatherproject.WeatherReader;

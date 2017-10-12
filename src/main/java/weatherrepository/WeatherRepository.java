@@ -1,4 +1,4 @@
-package repository;
+package weatherrepository;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
