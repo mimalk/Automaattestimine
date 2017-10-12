@@ -1,19 +1,18 @@
 package weatherproject;
 
+import http.utility.Converter;
+
 /**
  * Class for current weather.
  */
-public class CurrentWeather {
-    private String currentTemperature;
-    private Coordinates coordinates;
-    public CurrentWeather(Coordinates coordinates, String currentTemperature) {
+public class CurrentWeather extends Weather{
+    private Double currentTemperature;
+    private Converter converter = new Converter();
+    public CurrentWeather(String cityName, Coordinates coordinates, Double currentTemperature, String measurementUnit) {
+        super(cityName, coordinates, measurementUnit);
         this.currentTemperature = currentTemperature;
-        this.coordinates = coordinates;
     }
-    public String getCurrentTemperature() {
-        return currentTemperature;
-    }
-    public Coordinates getCoordinates() {
-        return coordinates;
+    public Double getCurrentTemperature() {
+        return converter.convertKelvins(currentTemperature, getMeasurementUnit());
     }
 }

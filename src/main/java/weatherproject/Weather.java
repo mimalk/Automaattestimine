@@ -1,13 +1,25 @@
 package weatherproject;
 
 /**
- * Weather class that uses the info and gives current weather and 3 day forecast.
+ * Super class.
  */
 public class Weather {
-    public CurrentWeather getCurrentWeather(WeatherReader weatherReader) throws Exception {
-        throw new Exception("No imp");
+    private String cityName;
+    private Coordinates coordinates;
+    private String measurementUnit;
+
+    public Weather(String cityName, Coordinates coordinates, String measurementUnit) {
+        this.measurementUnit = measurementUnit;
+        this.coordinates = coordinates;
+        this.cityName = cityName;
     }
-    public Forecast getThreeDayForecast(WeatherReader weatherReader) throws Exception {
-        throw new Exception("No imp");
+    public String getMeasurementUnit() {
+        return measurementUnit;
+    }
+    public Coordinates getCoordinates() {
+        return coordinates;
+    }
+    public String getCityName() {
+        return cityName;
     }
 }
