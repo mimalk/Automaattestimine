@@ -1,5 +1,6 @@
 package weather;
 
+import org.json.JSONException;
 import utility.Converter;
 import org.json.JSONObject;
 
@@ -14,12 +15,17 @@ public class DailyWeather {
     private List<JSONObject> oneDayWeatherInfo = new ArrayList<>();
     private Converter converter = new Converter();
     private String measurementUnit;
-    public DailyWeather(List<JSONObject> oneDayWeatherInfo, String measurementUnit) {
+    private String date;
+    public DailyWeather(List<JSONObject> oneDayWeatherInfo, String measurementUnit) throws JSONException {
         this.measurementUnit = measurementUnit;
         this.oneDayWeatherInfo = oneDayWeatherInfo;
+        date = oneDayWeatherInfo.get(0).get("dt_txt").toString().split(" ")[0];
     }
     public List<JSONObject> getOneDayWeatherInfo() {
         return oneDayWeatherInfo;
+    }
+    public String getDate() throws JSONException {
+        return date;
     }
     public double findMinOrMax(String key) throws Exception {
         JSONObject oneWeather = new JSONObject(oneDayWeatherInfo.get(0).get("main").toString());

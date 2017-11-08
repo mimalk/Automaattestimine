@@ -13,43 +13,52 @@ import java.util.List;
  */
 public class WeatherRepository {
     private WeatherReader weatherReader;
+    private JSONObject json;
+    private String cityName;
+    private Coordinates coordinates;
     public WeatherRepository(WeatherReader weatherReader) {
         this.weatherReader = weatherReader;
     }
     public CurrentWeather getCurrentWeather() throws Exception {
-        JSONObject json = weatherReader.readJsonFromUrl("weather");
-        JSONObject main = new JSONObject(json.get("main").toString());
-        String cityName = json.getString("name");
-        Double currentTemp = main.getDouble("temp");
-        Coordinates coordinates = new Coordinates(json.get("coord").toString());
-        return new CurrentWeather(cityName, coordinates, currentTemp, weatherReader.getMeasurementUnit());
+        json = weatherReader.readJsonFromUrl("weather");
+        if (json != null) {
+            JSONObject main = new JSONObject(json.get("main").toString());
+            cityName = json.getString("name");
+            Double currentTemp = main.getDouble("temp");
+            coordinates = new Coordinates(json.get("coord").toString());
+            return new CurrentWeather(cityName, coordinates, currentTemp, weatherReader.getMeasurementUnit());
+        }
+        return null;
+
     }
     public ThreeDayForecast getThreeDayForecast() throws Exception{
-        JSONObject json = weatherReader.readJsonFromUrl("forecast");
-        JSONArray array = json.getJSONArray("list");
-        JSONObject jsonCity = new JSONObject(json.get("city").toString());
-        String coords = jsonCity.get("coord").toString();
-        Coordinates coordinates = new Coordinates(coords);
-        String cityName = jsonCity.getString("name");
+        json = weatherReader.readJsonFromUrl("forecast");
+        if (json != null) {
+            JSONArray array = json.getJSONArray("list");
+            JSONObject jsonCity = new JSONObject(json.get("city").toString());
+            coordinates = new Coordinates(jsonCity.get("coord").toString());
+            cityName = jsonCity.getString("name");
 
-        String wantedDate = LocalDate.now().plusDays(1).toString();
-        List<DailyWeather> dailyWeathers = new ArrayList<>();
-        for (int i = 0; i < array.length(); i++) {
-            JSONObject listElement = new JSONObject(array.get(i).toString());
-            String date = listElement.getString("dt_txt").substring(0, 10);
-            if (date.equals(wantedDate)) {
-                int start = i;
-                for (int m = 0; m < 3; m++) {
-                    List<JSONObject> oneDay = new ArrayList<>();
-                    for (int k = 0; k < 8; k++) {
-                        oneDay.add(new JSONObject(array.get(start).toString()));
-                        start++;
+            String wantedDate = LocalDate.now().plusDays(1).toString();
+            List<DailyWeather> dailyWeathers = new ArrayList<>();
+            for (int i = 0; i < array.length(); i++) {
+                JSONObject listElement = new JSONObject(array.get(i).toString());
+                String date = listElement.getString("dt_txt").substring(0, 10);
+                if (date.equals(wantedDate)) {
+                    int start = i;
+                    for (int m = 0; m < 3; m++) {
+                        List<JSONObject> oneDay = new ArrayList<>();
+                        for (int k = 0; k < 8; k++) {
+                            oneDay.add(new JSONObject(array.get(start).toString()));
+                            start++;
+                        }
+                        dailyWeathers.add(new DailyWeather(oneDay, weatherReader.getMeasurementUnit()));
                     }
-                    dailyWeathers.add(new DailyWeather(oneDay, weatherReader.getMeasurementUnit()));
+                    break;
                 }
-                break;
             }
+            return new ThreeDayForecast(cityName, coordinates, dailyWeathers, weatherReader.getMeasurementUnit());
         }
-        return new ThreeDayForecast(cityName, coordinates, dailyWeathers, weatherReader.getMeasurementUnit());
+        return null;
     }
 }

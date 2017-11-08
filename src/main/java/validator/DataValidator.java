@@ -27,7 +27,7 @@ public class DataValidator {
             maxTemp = 140;
             minTemp = -76;
         } else {
-            throw new IllegalArgumentException("Units of measurement are not correct");
+            throw new IllegalArgumentException("Unit of measurement must be 'Celsius' or 'Fahrenheit'!");
         }
         if (temperature == null) {
             throw new IllegalArgumentException("Temperature is 'null'");
