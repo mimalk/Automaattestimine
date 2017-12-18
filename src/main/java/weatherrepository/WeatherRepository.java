@@ -39,7 +39,9 @@ public class WeatherRepository {
             coordinates = new Coordinates(jsonCity.get("coord").toString());
             cityName = jsonCity.getString("name");
 
-            String wantedDate = LocalDate.now().plusDays(1).toString();
+            JSONObject firstDay = new JSONObject(array.get(0).toString());
+            String firstDate = firstDay.getString("dt_txt").substring(0, 10);
+            String wantedDate = LocalDate.parse(firstDate).plusDays(1).toString();
             List<DailyWeather> dailyWeathers = new ArrayList<>();
             for (int i = 0; i < array.length(); i++) {
                 JSONObject listElement = new JSONObject(array.get(i).toString());

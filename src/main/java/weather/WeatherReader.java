@@ -19,24 +19,16 @@ public class WeatherReader {
         this.measurementUnit = measurementUnit;
         this.cityName = cityName;
     }
-    public WeatherReader(String measurementUnit) {
-        this.measurementUnit = measurementUnit;
-        try {
-            BufferedReader bufferedReader = Files.newBufferedReader(Paths.get("C:/Users/Mirjam/" +
-                    "Documents/Java projektid/Automaattestimine/src/main/input.txt"));
-            this.cityName = bufferedReader.readLine();
-            bufferedReader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
     public String getMeasurementUnit() {
         return measurementUnit;
     }
     public String getCityName() {
         return cityName;
     }
-    public void setCity() {
+    public void setCity(String city) {
+        this.cityName = city;
+    }
+    public void setCityFromConsole() {
         System.out.println("Enter city name: ");
         Scanner scanner = new Scanner(System.in);
         this.cityName = scanner.nextLine();

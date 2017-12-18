@@ -1,0 +1,6 @@
+City: Narva
+Coordinates: 28.19:59.38
+Current temperature: -0.2°C
+2017-12-18 Minimum temperature: -1.89°C Maximum temperature: -0.5°C
+2017-12-19 Minimum temperature: -8.39°C Maximum temperature: -2.46°C
+2017-12-20 Minimum temperature: -10.8°C Maximum temperature: -7.75°C

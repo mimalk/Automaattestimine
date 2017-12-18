@@ -1,0 +1,6 @@
+City: Tartu
+Coordinates: 26.72:58.37
+Current temperature: 0.0°C
+2017-12-18 Minimum temperature: -3.47°C Maximum temperature: -0.54°C
+2017-12-19 Minimum temperature: -7.89°C Maximum temperature: -3.71°C
+2017-12-20 Minimum temperature: -11.88°C Maximum temperature: -7.95°C

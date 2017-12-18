@@ -12,9 +12,9 @@ public class DataValidator {
         double latMin = -90;
         double latMax = 90;
         if (coordinates.getLatitude() > latMax || coordinates.getLatitude() < latMin) {
-            throw new Exception("The latitude of coordinates is not valid!");
+            throw new IllegalArgumentException("The latitude of coordinates is not valid!");
         } else if (coordinates.getLongitude() > lonMax || coordinates.getLongitude() < lonMin) {
-            throw new Exception("The longitude of coordinates is not valid!");
+            throw new IllegalArgumentException("The longitude of coordinates is not valid!");
         }
     }
     public void validateTemperature(Double temperature, String measurementUnit) throws Exception {

@@ -11,9 +11,10 @@ import java.io.FileNotFoundException;
  */
 public class WeatherReaderTest {
     @Test
-    public void testReadingCityNameFromFile() {
-        WeatherReader weatherReader = new WeatherReader("Celsius");
-        assertEquals("Tallinn", weatherReader.getCityName());
+    public void testSettingCityName() {
+        WeatherReader weatherReader = new WeatherReader("Tallinn", "Celsius");
+        weatherReader.setCity("Tartu");
+        assertEquals("Tartu", weatherReader.getCityName());
     }
     @Test(expected = FileNotFoundException.class)
     public void testWeatherReaderWithIncorrectCityName() throws Exception {
